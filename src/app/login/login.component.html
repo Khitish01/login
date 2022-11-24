@@ -1,0 +1,27 @@
+<body>
+    
+
+
+<mat-card class="example-card">
+    <h1>Login</h1>
+    <table class="example-full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Username</mat-label>
+          <input matInput type="text" [(ngModel)]="username">
+        </mat-form-field></td>
+      </tr>
+      <tr>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" [(ngModel)]="password">
+        </mat-form-field></td>
+      </tr>
+      <tr>
+        <td>
+            <button type="submit" mat-raised-button color="primary" ariaCurrentWhenActive="page" (click)="login()">Login</button>
+        </td>
+      </tr>
+    </table>
+  </mat-card>
+
+</body>

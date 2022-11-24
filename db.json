@@ -1,0 +1,10 @@
+{
+  "user_reg":[
+     {"name":"Khitish mangal","email":"khitishmangal100@gmail.com","phone":"+917377279183","age":"24","date":"2022-09-19T18:30:00.000Z","course":"MCA","gender":"Male"},
+     {"name":"Rakesh Swain","email":"rakeshbhola@gmail.com","phone":"+910996969081","age":"24","date":"2022-09-19T18:30:00.000Z","course":"MCA","gender":"Male"},
+     {"name":"Bibhu Ranjan Mohapatra","email":"bibhu@gmail.com","phone":"+919999999999","age":"24","date":"2022-09-19T18:30:00.000Z","course":"MCA","gender":"Male"},
+     {"name":"Khitish mangal","email":"khitishmangal100@gmail.com","phone":"+917377279183","age":"22","date":"2022-09-29T18:30:00.000Z","course":"MCA","gender":"Male"},
+     {"name":"Khitish mangal","email":"khitishmangal100@gmail.com","phone":"+917377279183","age":"21","date":"2022-09-04T18:30:00.000Z","course":"MTECH","gender":"Male"},
+     {"name":"Khitish Mangal","email":"khitishmangal143@gmail.com","phone":"+918117079653","age":"21","date":"2022-11-15T18:30:00.000Z","course":"MCA","gender":"Male"}
+  ]
+}

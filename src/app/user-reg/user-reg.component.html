@@ -1,0 +1,144 @@
+<body>
+
+    <mat-toolbar>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <button type="submit" mat-raised-button color="primary" routerLink="/user-reg" routerLinkActive="active" ariaCurrentWhenActive="page" >User-reg</button>&nbsp;&nbsp;&nbsp;
+        <button type="submit" mat-raised-button color="primary" routerLink="/user-data" routerLinkActive="active" ariaCurrentWhenActive="page" >User-data</button>
+        <span class="example-spacer"></span>
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+            <mat-icon>favorite</mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+            <mat-icon>share</mat-icon>
+        </button>
+    </mat-toolbar>
+    <!-- <mat-toolbar>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span>user_reg</span>&nbsp;&nbsp;&nbsp;
+        <span>User-Data</span>
+        <span class="example-spacer"></span>
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+            <mat-icon>favorite</mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+            <mat-icon>share</mat-icon>
+        </button>
+    </mat-toolbar> -->
+
+    <div class="body">
+
+        <form class="example-form" [formGroup]="userregdata" (ngSubmit)="submitForm()">
+            <mat-card class="example-card">
+                <h1>Registration Form</h1>
+
+
+                <table class="example-full-width" cellspacing="0">
+                    <tr>
+                        <td>
+                            <mat-form-field class="example-full-width" appearance="fill">
+                                <mat-label>Full Name</mat-label>
+                                <input matInput formControlName="name" name="name">
+                                <div *ngIf="user_reg.get('name')?.touched && user_reg.get('name')?.invalid"
+                                    style="color:red">
+                                    <span *ngIf="user_reg.get('name')?.hasError('pattern')"> Should only be
+                                        alphabates</span>
+                                    <span *ngIf="user_reg.get('name')?.hasError('required')"> Name is
+                                        required</span>
+                                    <span *ngIf="user_reg.get('name')?.hasError('minlength')"> Minimum length should
+                                        be 3</span>
+                                </div>
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <mat-form-field class="example-full-width" appearance="fill">
+                            <mat-label>Email</mat-label>
+                            <input type="email" matInput name="email" placeholder="Ex. pat@example.com" formControlName="email">
+                            <mat-error
+                                *ngIf="user_reg.hasError('email') && !user_reg.hasError('required')">
+                                Please enter a valid email address
+                            </mat-error>
+                            <mat-error *ngIf="user_reg.hasError('required')">
+                                Email is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </tr>
+                    <tr>
+                        <td>
+                            <mat-form-field class="example-full-width" appearance="fill">
+                                <mat-label>Phone Number</mat-label>
+                                <input matInput formControlName="phone" name="phonenumber">
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <mat-form-field class="example-full-width" appearance="fill">
+                                <mat-label>Age</mat-label>
+                                <input matInput formControlName="age" name="age">
+                                <div *ngIf="user_reg.get('age')?.touched && user_reg.get('age')?.invalid"
+                                    style="color:red">
+
+                                    <span *ngIf="user_reg.get('age')?.hasError('required')"> Age is required</span>
+                                    <span *ngIf="user_reg.get('age')?.hasError('min')"> Minimum value should be
+                                        20</span>
+                                    <span *ngIf="user_reg.get('age')?.hasError('max')"> Max value should be
+                                        27</span>
+                                </div>
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <mat-form-field class="example-full-width" appearance="fill">
+                            <mat-label>Choose a date</mat-label>
+                            <input matInput [matDatepicker]="picker" formControlName="date" name="date">
+                            <mat-hint>MM/DD/YYYY</mat-hint>
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker [dateClass]="dateClass" #picker></mat-datepicker>
+                        </mat-form-field>
+                    </tr>
+                    <tr>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Courses</mat-label>
+                            <mat-select name="course" [(ngModel)]="selectedValue" name="course" formControlName="course">
+                                <mat-option *ngFor="let course of courses" [value]="course.value">
+                                    {{course.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </tr>
+                    <tr>
+                        Gender:
+                        <mat-radio-group aria-label="Select an option" formControlName="gender">
+                            <mat-radio-button value="Male">Male</mat-radio-button>
+                            <mat-radio-button value="female">Female</mat-radio-button>
+                        </mat-radio-group>
+                    </tr>
+                    <tr>
+                        <input type="checkbox" (change)="checkBoxChanged($event)"><span>please
+                            check this box</span>
+                        <!-- <div *ngIf="user_reg.get('check')?.touched && user_reg.get('check')?.invalid" style="color:red">
+                            <span *ngIf="user_reg.get('check')?.hasError('required')"> Name is
+                                required</span>
+                        </div> -->
+                    </tr>
+                    <tr class="btn">
+                        <button type="submit" mat-raised-button color="primary" routerLink="/user-reg" routerLinkActive="active" ariaCurrentWhenActive="page" >submit</button>
+                    </tr>
+                </table>
+            </mat-card>
+        </form>
+    </div>
+
+    <div class="preview">
+        {{preview}}
+    </div>
+
+</body>
+
+
+<!-- {{userdata | json}} -->
